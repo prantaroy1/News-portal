@@ -84,15 +84,15 @@ let displayCategoriesNews = async (news, name) => {
 	            <div class="card-body">
 	            <h2 class="card-title text-black font-bold text-2xl">${newsItem.title}</h2>
 	            <p>${
-								newsItem.details.length > 20
-									? newsItem.details.slice(0, 200) + '...'
-									: newsItem.details
-							}
+					newsItem.details.length > 20
+					? newsItem.details.slice(0, 200) + '...'
+					: newsItem.details
+					}
 	                </p>
 	            <p>${
-								newsItem.details.length > 20
-									? newsItem.details.slice(201, 400) + '...'
-									: newsItem.details
+					newsItem.details.length > 20
+					? newsItem.details.slice(201, 400) + '...'
+					: newsItem.details
 							}
 	                </p>
 
@@ -104,12 +104,12 @@ let displayCategoriesNews = async (news, name) => {
 	                        </div>
 	                        <div>
 	                        <h1>${
-														newsItem.author.name === null
-															? 'Author Not found'
-															: newsItem.author.name === ''
-															? 'Author Not found'
-															: newsItem.author.name
-													}
+								newsItem.author.name === null
+								? 'Author Not found'
+								: newsItem.author.name === ''
+								? 'Author Not found'
+								: newsItem.author.name
+								}
                             </h1>
 	                        </div>
 	                    </div>
@@ -211,7 +211,9 @@ let blogInfo = () => {
       Difference Between var, let and const
     </div>
     <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
-      <p>Variables declared with var are in the function scope.
+      <p>In the early days of JavaScript, there was only one way to declare variables and that was using the var keyword. However, there were some issues associated with variables declared using the var keyword so it was necessary to evolve new ways for variable declaration. With the advent of ES6, now developers are able to define variables according to their specific needs, thanks to two new keywords: let and const.
+	  All three of these three keywords have similarities in their syntax for declaring variables. However, they differ in their usage and scope, as detailed in the next section.
+	  Variables declared with var are in the function scope.
       Variables declared as let are in the block scope.
       Variables declared as const are in the block scope.
       While variables declared with var are hoisted to the enclosing scope, variables declared with let or const are not initialized until their definition is evaluated.
@@ -225,7 +227,8 @@ let blogInfo = () => {
     Difference between arrow function and normal function
     </div>
     <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
-      <p>Both regular JavaScript functions and arrow functions work in a similar manner but there are some differences between them.The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the value of this depends on how the function was invoked.On the other hand, an arrow function does not define its own execution context. This results in an arrow function's this being resolved lexically.
+      <p>
+	  Unlike regular functions, arrow functions do not have their own this . The value of this inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of this in the closest non-arrow parent function.Both regular JavaScript functions and arrow functions work in a similar manner but there are some differences between them.The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the value of this depends on how the function was invoked.On the other hand, an arrow function does not define its own execution context. This results in an arrow function's this being resolved lexically.
       </p>
     </div>
   </div>
@@ -235,7 +238,7 @@ let blogInfo = () => {
     Difference between map filter find and foreach
     </div>
     <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
-      <p>
+      <p>The main difference between this two methods is that forEach allows you to change elements of original array and returns undefined and map does not allow you to change original array and intended for making new array based on original one.
       The main difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. map() loop through the elements allocates memory and stores return values by iterating main array.find: Return the first element which satisfies the condition.
       </p>
     </div>
@@ -243,11 +246,10 @@ let blogInfo = () => {
 
     <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
     <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
-    Why should we use template string
+    Why should we use template string ?
     </div>
     <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
-      <p>
-      Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.
+      <p>Template literals provide an easy way to interpolate variables and expressions into strings. The method is called string interpolation.Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.
       </p>
     </div>
   </div>
