@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>News Portal</title>
+    <title>BBC News</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -20,3 +20,37 @@
 
 
 </head>
+
+<header>
+    <!-- Navbar start -->
+    <section>
+        <div class="navbar bg-white text-purple-700">
+            <div class="flex-1">
+            
+                <a href=""><img
+                        src="https://findicons.com/files/icons/2792/hex_icons/128/bbc_news.png"
+                        class="rounded-full " style="width: 60px;height: 60px">
+                </a>
+            </div>
+            <div class="flex-none">
+
+                <div>
+                    <a class="btn btn-ghost btn-active btn-link normal-case text-2xl font-semibold ">News</a>
+
+                </div>
+
+                <div>
+                    <a onclick="blogPage();" class="btn btn-ghost normal-case text-xl" id="blog-page">Blog</a>
+
+                </div>
+
+                <div>
+                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
+                        
+                    </label>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Navbar  Ends-->
