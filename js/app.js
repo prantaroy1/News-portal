@@ -139,3 +139,116 @@ let displayCategoriesNews = async (news, name) => {
 		toggleLoader(false);
 	});
 };
+
+// loading news details for MODAL
+
+let newModalNewDetail = async (news_id) => {
+	let url = `https://openapi.programming-hero.com/api/news/${news_id}`;
+	try {
+		let response = await fetch(url);
+		let data = await response.json();
+		displayingNewsDetail(data.data[0]);
+	} catch (e) {
+		console.log(e);
+	}
+};
+
+// displaying details of news in modal
+
+let displayingNewsDetail = (details) => {
+	let newsDetailsInModal = document.getElementById('modal-news-details');
+	newsDetailsInModal.innerHTML = '';
+	newsDetailsInModal.innerHTML = `
+    <figure><img src="${details.image_url}" alt="Album" style="width: 100%; height: 100%;"></figure>
+    <h3 class="text-lg font-bold mt-4">${details.title}</h3>
+        <p class="py-4">${details.details}
+    <p class="py-4 text-center"> Author: <img src=" ${
+			details.author.img
+		}" class="w-10 rounded-full block mx-auto">
+    </p>
+    <p class="text-yellow-400 text-center">
+    ${
+			details.author.name === null
+				? 'Author Not found'
+				: details.author.name === ''
+				? 'Author Not found'
+				: details.author.name
+		}
+    </p>
+    
+    `;
+};
+
+// Spinner toggle function
+
+let toggleLoader = (isLoading) => {
+	let loader = document.getElementById('loader');
+	if (isLoading) {
+		loader.classList.remove('hidden');
+	} else {
+		loader.classList.add('hidden');
+	}
+};
+
+// ======================================== Blog page scripts =====================================
+
+// blog onclick event
+
+let blogPage = () => {
+	let blogPage = document.getElementById('blog-page');
+	window.location.href = 'blogs.html';
+};
+let blogInfo = () => {
+	let blogSection = document.getElementById('blog-section');
+	blogSection.innerHTML = `
+    <div class="space-y-5">
+
+
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+      Difference Between var, let and const
+    </div>
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+      <p>var declarations are globally scoped or function scoped while let and const are block scoped. var variables can be updated and re-declared within its scope; let variables can be updated but not re-declared; const variables can neither be updated nor re-declared.
+      </p>
+    </div>
+  </div>
+
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+    Difference between arrow function and normal function
+    </div>
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+      <p>Since regular functions are constructible, they can be called using the new keyword. However, the arrow functions are only callable and not constructible, i.e arrow functions can never be used as constructor functions. Hence, they can never be invoked with the new keyword.Both regular JavaScript functions and arrow functions work in a similar manner but there are some differences between them.The first and most obvious difference between arrow functions and regular functions is their syntax. Not only do they look different, but arrow functions also provide an implicit return shorthand and allow parenthesis around a single argument to be omitted.Inside a regular function, execution context (i.e. the value of this) is dynamic. This means that the value of this depends on how the function was invoked.On the other hand, an arrow function does not define its own execution context. This results in an arrow function's this being resolved lexically.
+      </p>
+    </div>
+  </div>
+
+    <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+    <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+    Difference between map filter find and foreach
+    </div>
+    <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+      <p>The main difference between this two methods is that forEach allows you to change elements of original array and returns undefined and map does not allow you to change original array and intended for making new array based on original one.
+      The main difference between forEach and filter is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. map() loop through the elements allocates memory and stores return values by iterating main array.find: Return the first element which satisfies the condition.
+      </p>
+    </div>
+  </div>
+  <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 rounded-box text-center ">
+  <div class="collapse-title text-3xl font-bold border-yellow-300 border-4 p-4">
+  Why should we use template string ?
+  </div>
+  <div class="collapse-content mx-3 text-2xl  bg-white text-black font-semibold"> 
+    <p> Template strings are a powerful feature of modern JavaScript released in ES6. It lets us insert/interpolate variables and expressions into strings without needing to concatenate like in older versions of JavaScript. It allows us to create strings that are complex and contain dynamic elements.
+    Template literals provide an easy way to interpolate variables and expressions into strings. The method is called string interpolation.
+    </p>
+  </div>
+</div>
+
+
+
+  </div>
+  `;
+};
+
+blogInfo();
